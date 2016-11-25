@@ -1,5 +1,6 @@
 <h1>Create your own <%= @cocktail.name %>!</h1>
 
+<%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
 <ul>
 <% @cocktail.doses.each do |dose| %>
 <li><%= dose.ingredient.name %></li>
@@ -12,6 +13,8 @@
   <%= f.input :ingredient_id, collection: Ingredient.all %>
   <%= f.button :submit %>
 <% end %>
+
+  <p><%= link_to "Delete this cocktail", cocktail_path(@cocktail), method: :delete %></p>
 
 <%= link_to "Back", cocktails_path %>
 
