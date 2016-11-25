@@ -1,12 +1,17 @@
-<h1>Choose a cocktail</h1>
+<h1 class="text-center">Choose a cocktail</h1>
 
-<p>Or create a <%= link_to "new cocktail", new_cocktail_path %>!</p>
+<p class="text-center new_cocktail">Or create a <%= link_to "new cocktail", new_cocktail_path %>!</p>
 
-
+<div class="container">
+<div class="row">
 <% @cocktails.each do |cocktail| %>
+
+<div class="col-xs-4">
 <%= cl_image_tag cocktail.photo, height: 200, width: 200, crop: :fill %>
-  <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+  <h2 class="cocktail"><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+  <p class="modify_cocktail"><%= link_to "Edit", edit_cocktail_path(cocktail) %></p>
 
-  <p><%= link_to "Edit", edit_cocktail_path(cocktail) %></p>
-
+</div>
 <% end %>
+</div>
+</div>
